@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PyDictionary</title>
+    <style media="screen">
+      body{
+        height: 100%;
+        /* width: 100%; */
+        margin: 0 auto;
+        background-image: url(../static/image.jpg);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+        position: relative;
+      }
+      .containerof{
+        /* background: rgba(73, 68, 68, 0.5); */
+        background-color: rgba(73, 73, 73, 0.5);
+        height: 100%;
+        /* padding: 4rem; */
+        min-height: calc(100vh - 60px);
+        padding-bottom: 0;
+        vertical-align: middle;;
+        padding-top: 20px;
+        /* margin-top: 90px; */
+        width: 100%;
+        left: 0;
+        right: 0;
+      }
+      .containerof p{
+        margin-bottom: 0px;
+        padding-bottom: 5px;
+        color: white;
+      }
+      .containerof .formSty{
+        padding-top: 100px;
+      }
+      .button{
+        margin-top: 20px;
+        margin-right:40px;
+        font-size: 20px;
+        /* background: skyblue; */
+        background-color: rgba(73, 73, 73, 0.5);
+        color: white;
+        border-radius: 5px 5px 5px 5px;
+        border: 0px;
+      }
+      .button:hover{
+        box-shadow: 1px 1px 1px 1px;
+        background: white;
+        color: black;
+      }
+      .output{
+        font-size: 25px;
+        color: white;
+        font-family: cursive,fantasy,sans-serif,serif,monospace;
+        text-align: left;
+        padding-left: 20%;
+      }
+      span{
+        color: skyblue;
+      }
+      .box{
+        padding: 5px 10px 5px 10px;
+        font-family: cursive,fantasy,sans-serif,serif,monospace;
+      }
+    </style>
+  </head>
+          {% extends 'layout.html' %}
+            {% block sub_content %}
+  <body>
+    <div class="containerof" align="center">
+        <form method="POST" align="center" class="formSty">
+          <span style="font-size: 50px;color: orange">PyDict</span><sub style="color:white; font-size: 18px"> - a Dictionary</sub>
+            <p style="font-size: 28px">What <span>word</span> do you want to look up?</p>
+            <input style="width: 40%;height: 25px;font-size: 20px;" placeholder="Search for a word" type="text" name="inputWord" value="" class="box" required autofocus><br>
+            <input type="submit" value=" Enter " name="submit" class="button"/>
+            <a href="/" style="font-size: 20px;text-decoration: none; color: lime">- Clear -</a>
+      <!-- use /> after input for data to be directed to Database  -->
+
+    </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          <p style="font-size: 22px;color: #29a3a3">Meaning: </p>
+              {% for category, message in messages %}
+                <p class="output"> {{message}}</p>
+              {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+    </div>
+  </body>
+          {% endblock %}
+</html>
