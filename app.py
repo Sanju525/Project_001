@@ -20,12 +20,13 @@ def home():
         temp = Word
         #Converting to lower case
         Word = Word.lower()
+        session['input'] = temp
         if Word in data:
             # print(data[Word])
             i=1
             for word in data[Word]:
                 session['Word'] = word
-                session['input'] = temp
+
                 session['index'] = i
                 flash(str(session['index']) +". " + session['Word'])
                 i+=1
